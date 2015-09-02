@@ -1,4 +1,4 @@
-# At this point, zsh is already installed and added to /etc/shells
+# At this point, zsh is already installed trough brew, but not configured for the system
 
 echo "Setting up your shell...."
 
@@ -13,6 +13,15 @@ case "$SHELL" in
     ;;
 esac
 
-sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+echo "Downloading terminal font..."
+wget https://github.com/chrissimpkins/Hack/releases/download/v2.010/Hack-v2_010-ttf.zip
+unzip Hack-v2_010-ttf.zip
+rm Hack-v2_010-ttf.zip
+mv Hack-* $HOME/Library/Fonts
 
-echo "You'll still need to install the Hack font, and apply solarized color theme to iTerm (todo: export these settings)"
+echo "Configuring iTerm..."
+# Enable custom directory
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/iterm2settings"
+
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"

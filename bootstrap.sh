@@ -15,11 +15,11 @@ function doIt() {
 	#xcode utils
 	xcode-select --install
 
-	source brew.sh
-	source jari-osx-apps.sh
-	source jari-npm.sh
+	# source brew.sh
+	# source jari-osx-apps.sh
+	# source jari-npm.sh
 	source jari-shell.sh
-	source jari-osx-settings.sh
+	# source jari-osx-settings.sh
 
 	echo "Install script done."
 }
